@@ -1,4 +1,4 @@
-package labs.lab4;
+package labs.modules;
 import labs.models.IFuncX;
 import labs.models.Point;
 import labs.modules.GraphModule;

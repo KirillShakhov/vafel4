@@ -1,33 +1,23 @@
-package labs.lab4.commands;
+package labs;
 
-import labs.lab4.IndividualFunc;
-import labs.models.ICommand;
 import labs.models.IFuncX;
-import labs.lab4.LagrangianIntegrationMath;
+import labs.modules.LagrangianIntegrationMath;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class LagrangeInterpolation implements ICommand {
+public class LagrangeInterpolation implements Runnable {
     Scanner scanner = new Scanner(System.in);
     @Override
-    public String getMessage() {
-        return "Интерполирование многочленом Лагранжа";
-    }
-
-
-    @Override
-    public void execute() {
+    public void run() {
         System.out.println("Интерполирование многочленом Лагранжа:");
         Map<String, IFuncX> funcs = new HashMap<>();
         // 1
         funcs.put("sin(x)", Math::sin);
         // 2
-        funcs.put("2x", x -> 2*x);
-        //
-
+        funcs.put("cos(x)", Math::cos);
         /*
         Вывод и обработка ввода. Не трогать.
         */
@@ -39,13 +29,7 @@ public class LagrangeInterpolation implements ICommand {
         }
         System.out.println((funcs.size()+1)+". Ввести своё уравнение");
         String str = scanner.nextLine();
-        try {
-            IFuncX func1 = funcs.get(keys.get(Integer.parseInt(str) - 1));
-            LagrangianIntegrationMath.solve(func1);
-        } catch (Exception e) {
-            IndividualFunc f = new IndividualFunc();
-            f.execute();
-            LagrangianIntegrationMath.solve(f);
-        }
+        IFuncX func1 = funcs.get(keys.get(Integer.parseInt(str) - 1));
+        LagrangianIntegrationMath.solve(func1);
     }
 }
