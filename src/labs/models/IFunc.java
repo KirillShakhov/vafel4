@@ -1,6 +1,6 @@
 package labs.models;
 
 
-public interface IFuncX {
+public interface IFunc {
     Double solve(double x);
 }
