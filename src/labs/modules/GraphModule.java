@@ -10,6 +10,10 @@ import javax.swing.*;
 import labs.models.Point;
 import labs.models.IFunc;
 
+/*
+Author - ???
+Modified by Kirill Shakhov
+ */
 
 public class GraphModule extends JPanel {
     double x1 = -5, x2 = 5, y1 = -5, y2 = 5;
